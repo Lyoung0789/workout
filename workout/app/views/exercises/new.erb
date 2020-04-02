@@ -1,0 +1,16 @@
+<h2>Create a new Exercise</h2>
+
+
+<form method="POST" action="/exercises/new">
+    <p>Name of Exercise: <input type ="text" name="name"></p>
+    <p>How many Reps/Miles: <input type ="text" name="reps"></p>
+    <p>Date of Exercise:<input type ="date" name="date"></p>
+    <input type="submit">
+</form>
+
+<% if !@exercise.errors.empty? %>
+    <% @exercise.errors.full_messages.each do |message| %>
+        <%= message %><br>
+    <% end %>
+<% end %>
+

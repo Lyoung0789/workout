@@ -1,0 +1,12 @@
+<h2>Select which workout you would like to edit </h2>
+<form method="post" action="/exercises">
+<% @user.exercises.each do |exercise|%>
+    
+    <input type="radio" name="id" value="<%= exercise.id%>"><%= exercise.name %> on <%= exercise.date.strftime("%m/%d/%Y")%><br>
+    
+    
+    <% end %>
+    <input type="submit"> 
+</form>
+
+  

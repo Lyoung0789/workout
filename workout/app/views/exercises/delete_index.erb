@@ -1,0 +1,10 @@
+<h2>Select which workout you would like to delete </h2>
+<form method="post" action="/exercises/delete">
+<% @user.exercises.each do |exercise|%>
+    
+    <input type="radio" name="id" value="<%= exercise.id%>"><%= exercise.name %><br>
+    
+    
+    <% end %>
+    <input type="submit">
+</form>

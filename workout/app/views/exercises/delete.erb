@@ -1,0 +1,13 @@
+<h2>Are you sure you would like to delete</h2>
+
+<p>Name: <%= @exercise.name %></p>
+<p>Reps: <%= @exercise.reps %></p>
+<p>Date: <%= @exercise.date %></p>
+
+<form method="POST" action="/exercises/<%= @exercise.id %>">
+<input type="hidden" id="hidden" name="_method" value="delete">
+<input type ="submit" value="Delete">
+</form>
+
+
+

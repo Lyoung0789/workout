@@ -1,0 +1,11 @@
+<h1>Hello <%= @user.username %>!! </h1>
+<h3>These are your past work outs</h3>
+<ol><% @user.exercises.each do |exercise| %>
+    <p><li><%= exercise.name %>: <br><%= exercise.reps %> reps/miles<br><%= exercise.date.strftime("%m/%d/%Y")%></li></p>
+<% end %></ol>
+
+<br>
+
+<a href="/exercises/new">Add a new Exercise</a><br>
+<a href="/exercises/edit">Edit a past workout</a><br>
+<% #%><a href="/exercise/delete">Delete a workout</a><br>

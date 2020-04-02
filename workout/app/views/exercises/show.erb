@@ -1,0 +1,5 @@
+<h2>Exercise Info:</h2>
+<p><%= @exercise.name %><br>Reps/Miles: <%= @exercise.reps %><br><%= @exercise.date.strftime("%m/%d/%Y") %></p>
+
+<a href="/exercises/<%= @exercise.id %>/edit">Edit this exercise</a>
+<a href ="/exercises/<%= @exercise.id %>/delete">Delete this exercise</a>

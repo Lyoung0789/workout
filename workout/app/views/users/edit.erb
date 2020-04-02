@@ -1,0 +1,13 @@
+<h2>Edit User <%= @user.username %></h2>
+<form method="POST" action="/user/<%= @user.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Username: <input type="text" name="username" value="<%= @user.username %>"></p>
+    <p>Password: <input type="password" name="password" value="<%= @user.password %>"> Reenter Password<input type="password" name="password_2"></p>
+    
+    <input type="submit">
+</form>
+<p>or</p>
+<form method="POST" action="/user/<%= @user.id %>">
+<input type="hidden" id="hidden" name="_method" value="delete">
+<input type ="submit" value="Delete Account">
+</form>

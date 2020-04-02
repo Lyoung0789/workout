@@ -1,0 +1,8 @@
+<h2>Edit Workout <%= @exercise.name %> on <%= @exercise.date %></h2>
+<form method="POST" action="/exercises/<%= @exercise.id %>">
+<input id="hidden" type="hidden" name="_method" value="patch">
+    <p>Name: <input type="text" name="name" value="<%= @exercise.name %>"></p>
+    <p>Reps/Miles: <input type="text" name="reps" value="<%= @exercise.reps %>"></p>
+    <p>Date: <input type="date" name="date" value="<%= @exercise.date %>"></p>
+    <input type="submit">
+</form>

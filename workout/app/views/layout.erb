@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <style>
+    .head1 { 
+            font-size:40px; 
+            color:#000000; 
+            font-weight:bold; 
+        } 
+        .head2 { 
+            font-size:17px; 
+            margin-left:10px; 
+            margin-bottom:15px; 
+        } 
+    .menu {    
+        position: sticky; 
+        top: 0; 
+        background-color: #93aed2; 
+        padding:10px 0px 10px 0px; 
+        color:white; 
+        margin: 0 auto; 
+        overflow: hidden; 
+    } 
+    </style>
+   
+</head>
+<body style="background-color:rgb(176, 196, 222)">
+<header>
+<div class= "head1">Workout!</div>
+<div class = "head2">A place to track your daily exercise routines</div>
+</header>
+<div class="menu"><a href="/exercises">Home</a> <a href="/logout">Log Out</a> <a href="/user">Account Settings</a></div>
+    <%= yield %>
+    </body>
+    <footer>
+        <br>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </footer>
+</html>
