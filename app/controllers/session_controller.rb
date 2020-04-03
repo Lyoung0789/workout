@@ -6,7 +6,7 @@ class SessionController < ApplicationController
             redirect "/"
         end 
 
-        erb :"/users/signup"
+        erb :"/sessions/signup"
     end 
 
     post '/signup' do 
@@ -18,13 +18,13 @@ class SessionController < ApplicationController
             redirect '/exercises'
         else 
             binding.pry
-            erb :"/users/signup"
+            erb :"/sessions/signup"
         end 
     end 
 
     get '/login' do 
         
-        erb :"/users/login"
+        erb :"/sessions/login"
     end 
 
     post '/login' do 
@@ -35,9 +35,8 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             redirect '/exercises'
         else 
-            
             @error = "Invalid Password or Username"
-            erb :"/users/login"
+            erb :"/sessions/login"
         end 
     end 
 

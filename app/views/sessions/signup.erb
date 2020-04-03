@@ -1,0 +1,21 @@
+<h2>Sign Up</h2>
+
+<%  if @user == nil %>
+    <form method="POST" action ="/signup">
+        <p>Email: <input type="text" name="email"></p>
+        <p>Username: <input type="text" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <input type="submit">
+    </form>
+<% else %>
+    <% @user.errors.full_messages.uniq.each do |message| %>
+        <%= message %><br>
+        <% end %>
+        <form method="POST" action ="/signup">
+        <p>Email: <input type="text" name="email"></p>
+        <p>Username: <input type="text" name="username"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <input type="submit">
+    </form>
+<% end %>
+

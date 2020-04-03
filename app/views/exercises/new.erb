@@ -1,16 +1,22 @@
 <h2>Create a new Exercise</h2>
+<% if @exercise == nil  %>
+    <form method="POST" action="/exercises/new">
+        <p>Name of Exercise: <input type ="text" name="name"></p>
+        <p>How many Reps/Miles: <input type ="text" name="reps"></p>
+        <p>Date of Exercise:<input type ="date" name="date"></p>
+        <input type="submit">
+    </form>
 
-
-<form method="POST" action="/exercises/new">
-    <p>Name of Exercise: <input type ="text" name="name"></p>
-    <p>How many Reps/Miles: <input type ="text" name="reps"></p>
-    <p>Date of Exercise:<input type ="date" name="date"></p>
-    <input type="submit">
-</form>
-
-<% if !@exercise.errors.empty? %>
+<% else %>
     <% @exercise.errors.full_messages.each do |message| %>
         <%= message %><br>
     <% end %>
+    <form method="POST" action="/exercises/new">
+        <p>Name of Exercise: <input type ="text" name="name"></p>
+        <p>How many Reps/Miles: <input type ="text" name="reps"></p>
+        <p>Date of Exercise:<input type ="date" name="date"></p>
+        <input type="submit">
+    </form>
+
 <% end %>
 
