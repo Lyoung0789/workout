@@ -17,7 +17,7 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             redirect '/exercises'
         else 
-            binding.pry
+            
             erb :"/sessions/signup"
         end 
     end 

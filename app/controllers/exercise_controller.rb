@@ -80,6 +80,7 @@ class ExerciseController < ApplicationController
     end 
 
     patch '/exercises/:id' do 
+        
         edited_hash={name: params[:name], reps: params[:reps], date: params[:date]}
         if logged_in?
             find_exercise
