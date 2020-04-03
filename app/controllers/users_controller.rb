@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     get '/user/:id/edit' do 
         
         if logged_in?
-            @user = current_user
+            current_user
             erb :"/users/edit"
         else 
             redirect '/login'
@@ -25,21 +25,23 @@ class UsersController < ApplicationController
     patch '/user/:id' do 
         
         edited_hash={username: params[:username], password: params[:password]}
-
+        
         if logged_in?
-            #maybe?
             current_user
             if @user.id == params[:id].to_i
                 if params[:password] == params[:password_2]
                     @user.update(edited_hash)
                     redirect '/user'
                 else 
+                    
                     redirect '/user'
                 end 
             else 
+                
                 redirect "/user"
             end 
         else 
+            
             redirect '/login'
         end 
 
@@ -47,12 +49,11 @@ class UsersController < ApplicationController
 
     end 
 
-#binding.pry
+
     delete '/user/:id' do 
         if logged_in?
             @user = current_user
             if @user.id == params[:id].to_i
-                binding.pry
                 @user.exercises.each do |exercise|
                     exercise.delete
                 end 

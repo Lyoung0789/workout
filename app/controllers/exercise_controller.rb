@@ -87,6 +87,7 @@ class ExerciseController < ApplicationController
             if @exercise.user == current_user 
                 @exercise.update(edited_hash)
             else 
+                binding.pry
                 erb :"/exercises/edit"
             end 
         else 
