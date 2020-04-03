@@ -84,10 +84,11 @@ class ExerciseController < ApplicationController
         edited_hash={name: params[:name], reps: params[:reps], date: params[:date]}
         if logged_in?
             find_exercise
+            #makes sure you are the correct user editing the right exercise
             if @exercise.user == current_user 
                 @exercise.update(edited_hash)
             else 
-                binding.pry
+                
                 erb :"/exercises/edit"
             end 
         else 
