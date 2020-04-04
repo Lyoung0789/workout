@@ -25,13 +25,13 @@ gem 'tux'
 
 To install these gems run:
 
-    $ bundle
+    $ bundle install 
 
 
 
 ## Usage
 
-After installing the gems that were used, in terminal run rake:db migrate to create the database needed. Then run rake db:seed for some seed data. Finally, run shotgun in terminal to start the server for our application and in your browser navigate to localhost:9393.
+After installing the gems that were used, in terminal run 'rake:db migrate' to create the database needed. Then run 'rake db:seed' for some seed data. Finally, run 'shotgun' in terminal to start the server for our application and in your browser navigate to 'localhost:9393'.
 Check password and username fields in db/seeds to log into existing users.
 
 ## Development
