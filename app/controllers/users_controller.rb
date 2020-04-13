@@ -45,13 +45,15 @@ class UsersController < ApplicationController
     end 
 
     patch '/user/:id' do 
-        
-        edited_hash={username: params[:username], password: params[:password]}
+        binding.pry
+        edited_hash={username: params[:username], password: params[:new_password]}
         
         if logged_in?
             current_user
-            if @user.id == params[:id].to_i
-                if params[:password] == params[:password_2]
+            
+            if @user.id == session[:user_id]
+
+                if params[:new_password] == params[:new_password_2]
                     @user.update(edited_hash)
                     redirect '/user'
                 else 

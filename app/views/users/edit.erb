@@ -2,7 +2,9 @@
 <form method="POST" action="/user/<%= @user.id %>">
 <input id="hidden" type="hidden" name="_method" value="patch">
     <p>Change Username: <input type="text" name="username" value="<%= @user.username %>"></p>
-    <p>Change Password: <input type="password" name="password" value="<%= @user.password %>"> Reenter Password<input type="password" name="password_2"></p>
+
+    <h3>Change Password</h3>
+    <p>Change Password: <input type="password" name="new_password"> Reenter Password<input type="password" name="new_password_2"></p>
     
     <input type="submit">
 </form>
