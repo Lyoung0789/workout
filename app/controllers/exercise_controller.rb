@@ -42,7 +42,8 @@ class ExerciseController < ApplicationController
         if logged_in?
             @user = current_user
             erb :"exercises/edit_index"
-            
+        else 
+            redirect '/login'
         end  
     end 
 
@@ -58,7 +59,6 @@ class ExerciseController < ApplicationController
             if @exercise.user_id == current_user.id
                 erb :"/exercises/show"
             else 
-                
                 redirect '/exercises'
             end 
         else 
@@ -67,12 +67,13 @@ class ExerciseController < ApplicationController
     end 
 
     get '/exercises/:id/edit' do    
+        
         if logged_in?
             find_exercise
             if @exercise.user == current_user
                 erb :"/exercises/edit"
             else 
-                erb :"/exercises/show"
+                redirect "/exercises"
             end 
         else 
             redirect "/login"
@@ -87,15 +88,16 @@ class ExerciseController < ApplicationController
             #makes sure you are the correct user editing the right exercise
             if @exercise.user == current_user 
                 @exercise.update(edited_hash)
+                redirect "/exercises/#{@exercise.id}"
             else 
-                
-                erb :"/exercises/edit"
+                binding.pry
+                redirect "/exercises"
             end 
         else 
             redirect '/login'
         end 
 
-        redirect "/exercises/#{@exercise.id}"
+        
     end 
 
     get '/exercises/:id/delete' do 
