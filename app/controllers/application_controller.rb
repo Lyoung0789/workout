@@ -11,8 +11,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-
-    erb :welcome, :layout=>false
+    if logged_in?
+      redirect '/exercises'
+    else 
+      erb :welcome, :layout=>false
+    end 
     
   end
 

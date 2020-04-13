@@ -1,5 +1,27 @@
 class UsersController < ApplicationController 
 
+    get '/signup' do 
+        
+        if logged_in?
+            redirect "/exercises"
+        end 
+
+        erb :"/users/signup"
+    end 
+
+    post '/signup' do 
+        @user = User.new(params)
+        
+        if @user.valid?
+            @user.save 
+            session[:user_id] = @user.id
+            redirect '/exercises'
+        else 
+            
+            erb :"/users/signup"
+        end 
+    end 
+
     get '/user' do 
         if logged_in?
             
