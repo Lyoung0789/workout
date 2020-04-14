@@ -1,7 +1,7 @@
 class ExerciseController < ApplicationController
 
 
-    get '/exercises' do #plural 
+    get '/exercises' do 
         
         if logged_in?
             @user = current_user
@@ -16,7 +16,7 @@ class ExerciseController < ApplicationController
         erb :"/exercises/new"
     end 
 
-    post '/exercises/new' do #exercises
+    post '/exercises/new' do 
         if logged_in?
             @user = current_user
             @exercise = Exercise.new(params)
@@ -26,7 +26,6 @@ class ExerciseController < ApplicationController
                 @exercise.save
                 redirect 'exercises'
             else 
-                
                 
                 erb :"/exercises/new"
                 
